@@ -1,0 +1,6 @@
+[theme]
+name=Archcraft
+description=Default lightdm webkit2 theme for Archcraft
+engine=lightdm-webkit2-greeter
+url=index.html
+session=openbox

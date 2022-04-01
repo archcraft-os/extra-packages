@@ -1,0 +1,23 @@
+# Maintainer: Aditya Shakya <adi1090x@gmail.com>
+
+pkgname=archcraft-grub-theme-stylish
+pkgver=1.0
+pkgrel=2
+pkgdesc="Stylish grub2 bootloader theme for Archcraft"
+url="https://github.com/archcraft-os/extra-packages"
+arch=('any')
+license=('GPL3')
+makedepends=()
+depends=('grub')
+conflicts=()
+groups=(archcraft-grub-themes)
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+
+prepare() {
+	cp -af ../files/. ${srcdir}
+}
+
+package() {
+	(find * -type f -exec install -Dm 644 "{}" "$pkgdir/usr/share/grub/themes/{}" \;)
+}

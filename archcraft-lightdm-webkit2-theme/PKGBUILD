@@ -1,0 +1,23 @@
+# Maintainer: Aditya Shakya <adi1090x@gmail.com>
+
+pkgname=archcraft-lightdm-webkit2-theme
+pkgver=1.0
+pkgrel=2
+pkgdesc="Default lightdm webkit2 theme for Archcraft"
+url="https://github.com/archcraft-os/extra-packages"
+arch=('any')
+license=('GPL3')
+makedepends=()
+depends=('lightdm' 'lightdm-webkit2-greeter')
+conflicts=()
+groups=(archcraft-lightdm-webkit2-themes)
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+
+prepare() {
+	cp -af ../files/. ${srcdir}
+}
+
+package() {
+	(find archcraft -type f -exec install -Dm 644 "{}" "$pkgdir/usr/share/lightdm-webkit/themes/{}" \;)
+}

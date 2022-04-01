@@ -1,0 +1,5 @@
+/packages_aur
+/packages_caur
+/packages
+cleanup.sh
+push.sh
