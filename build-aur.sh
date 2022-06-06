@@ -15,7 +15,7 @@ PKGDIR="$DIR/packages_aur"
 
 LIST=(#archlinux-appstream-data-pamac
 	  blight
-	  berry-git
+	  berry
 	  cava
 	  #colorpicker
 	  ksuperkey
