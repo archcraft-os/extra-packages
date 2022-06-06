@@ -30,8 +30,8 @@ LIST=(#archlinux-appstream-data-pamac
 	  xfce-polkit
 	  #ckbcomp
 	  #mkinitcpio-openswap
-	  #i3lock-color
-	  #betterlockscreen
+	  i3lock-color
+	  betterlockscreen
 	  #networkmanager-dmenu-git
 	  obmenu-generator
 	  perl-linux-desktopfiles
