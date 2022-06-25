@@ -28,6 +28,8 @@ LIST=(#archlinux-appstream-data-pamac
 	  #tty-clock
 	  unimatrix-git
 	  xfce-polkit
+	  wlr-randr
+	  newm-git
 	  #ckbcomp
 	  #mkinitcpio-openswap
 	  i3lock-color
