@@ -37,6 +37,7 @@ LIST=(#archlinux-appstream-data-pamac
 	  #networkmanager-dmenu-git
 	  obmenu-generator
 	  perl-linux-desktopfiles
+	  river
 	  #polybar
 	  #yay
 	  #picom-ibhagwan-git
