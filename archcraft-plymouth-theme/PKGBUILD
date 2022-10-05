@@ -2,7 +2,7 @@
 
 pkgname=archcraft-plymouth-theme
 pkgver=1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Default plymouth theme for Archcraft"
 url="https://github.com/archcraft-os/extra-packages"
 arch=('any')

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2021 Aditya Shakya <adi1090x@gmail.com>
+## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
 ## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
 
 ## This script will download and build AUR pkgs.
@@ -13,39 +13,34 @@ MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\0
 DIR="$(pwd)"
 PKGDIR="$DIR/packages_aur"
 
-LIST=(#archlinux-appstream-data-pamac
-	  blight
-	  berry
+LIST=(blight
 	  cava
-	  #colorpicker
 	  ksuperkey
-	  #libpamac-full
-	  #pamac-all
-	  #pyroom
 	  #snapd
 	  #snapd-glib
 	  toilet
-	  #tty-clock
 	  unimatrix-git
 	  xfce-polkit
-	  wlr-randr
-	  newm-git
-	  #ckbcomp
-	  #mkinitcpio-openswap
+	  ckbcomp
+	  mkinitcpio-openswap
+	  mkinitcpio-firmware
 	  i3lock-color
 	  betterlockscreen
-	  #networkmanager-dmenu-git
+	  networkmanager-dmenu-git
 	  obmenu-generator
 	  perl-linux-desktopfiles
+	  berry
 	  river
-	  #polybar
-	  #yay
-	  #picom-ibhagwan-git
-	  #timeshift
-	  #downgrade
-	  #pygtk
-	  #libglade
-	  #python2-gobject2
+	  wayfire
+	  newm-git
+	  python-thefuzz
+	  wlr-randr
+	  wlogout
+	  polybar
+	  yay
+	  picom-ibhagwan-git
+	  timeshift
+	  downgrade
 	  )
 
 # Sort packages

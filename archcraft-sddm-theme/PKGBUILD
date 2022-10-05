@@ -1,8 +1,8 @@
 # Maintainer: Aditya Shakya <adi1090x@gmail.com>
 
-pkgname=archcraft-sddm-theme-default
+pkgname=archcraft-sddm-theme
 pkgver=1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Default sddm theme for Archcraft"
 url="https://github.com/archcraft-os/extra-packages"
 arch=('any')
