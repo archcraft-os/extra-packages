@@ -24,6 +24,9 @@ LIST=(blight
 	  ckbcomp
 	  mkinitcpio-openswap
 	  mkinitcpio-firmware
+	  aic94xx-firmware
+	  upd72020x-fw
+	  wd719x-firmware
 	  i3lock-color
 	  betterlockscreen
 	  networkmanager-dmenu-git
