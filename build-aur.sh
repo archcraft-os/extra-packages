@@ -44,6 +44,7 @@ LIST=(blight
 	  picom-ibhagwan-git
 	  timeshift
 	  downgrade
+	  mugshot
 	  )
 
 # Sort packages
