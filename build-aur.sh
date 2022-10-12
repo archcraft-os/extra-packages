@@ -35,8 +35,11 @@ LIST=(blight
 	  berry
 	  river
 	  wayfire
+	  wf-config
 	  newm-git
 	  python-thefuzz
+	  python-dasbus
+	  python-imageio
 	  wlr-randr
 	  wlogout
 	  polybar
