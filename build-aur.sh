@@ -48,6 +48,7 @@ LIST=(blight
 	  timeshift
 	  downgrade
 	  mugshot
+	  gtk3-nocsd-git
 	  )
 
 # Sort packages
