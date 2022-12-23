@@ -50,7 +50,7 @@ build_pkgs () {
 	
 	RDIR='../pkgs/x86_64'
 	if [[ -d "$RDIR" ]]; then
-		#mv -f "$PKGDIR"/*.pkg.tar.zst "$RDIR" && rm -r "$PKGDIR"
+		mv -f "$PKGDIR"/*.pkg.tar.zst "$RDIR" && rm -r "$PKGDIR"
 		echo -e "Packages moved to Repository.\n[!] Don't forget to update the database.\n"
 	fi
 }
