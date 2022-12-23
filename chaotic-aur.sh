@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 ## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
-## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
 
 ## Packages
 DIR="$(pwd)"
@@ -21,7 +20,7 @@ exit_on_signal_SIGTERM () {
 trap exit_on_signal_SIGINT SIGINT
 trap exit_on_signal_SIGTERM SIGTERM
 
-# Build packages
+## Build packages
 get_pkgs () {
 
 	if [[ ! -d "$PKGDIR" ]]; then
@@ -38,5 +37,5 @@ get_pkgs () {
 	fi
 }
 
-# Execute
+## Execute
 get_pkgs

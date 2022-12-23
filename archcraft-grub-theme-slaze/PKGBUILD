@@ -2,7 +2,7 @@
 
 pkgname=archcraft-grub-theme-slaze
 pkgver=1.0
-pkgrel=3
+pkgrel=4
 pkgdesc="Slaze grub2 bootloader theme for Archcraft"
 url="https://github.com/archcraft-os/extra-packages"
 arch=('any')

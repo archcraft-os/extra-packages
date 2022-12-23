@@ -2,7 +2,7 @@
 
 pkgname=archcraft-lxdm-theme-circuit
 pkgver=1.0
-pkgrel=3
+pkgrel=4
 pkgdesc="Circuit lxdm theme for Archcraft"
 url="https://github.com/archcraft-os/extra-packages"
 arch=('any')

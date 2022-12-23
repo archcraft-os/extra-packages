@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 ## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
-## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
 
 ## Dirs
 DIR="$(pwd)"
@@ -22,7 +21,7 @@ exit_on_signal_SIGTERM () {
 trap exit_on_signal_SIGINT SIGINT
 trap exit_on_signal_SIGTERM SIGTERM
 
-# Build packages
+## Build packages
 build_pkgs () {
 	local pkg
 
@@ -33,8 +32,7 @@ build_pkgs () {
 	echo -e "\nBuilding Packages - \n"
 	for pkg in "${PKGS[@]}"; do
 		echo -e "Building ${pkg}..."
-		cd ${pkg} && makepkg -s
-		mv *.pkg.tar.zst "$PKGDIR" && rm -rf src pkg
+		cd ${pkg} && makepkg -sc && mv *.pkg.tar.zst "$PKGDIR"
 
 		# Verify
 		while true; do
@@ -52,10 +50,10 @@ build_pkgs () {
 	
 	RDIR='../pkgs/x86_64'
 	if [[ -d "$RDIR" ]]; then
-		mv -f "$PKGDIR"/*.pkg.tar.zst "$RDIR" && rm -r "$PKGDIR"
+		#mv -f "$PKGDIR"/*.pkg.tar.zst "$RDIR" && rm -r "$PKGDIR"
 		echo -e "Packages moved to Repository.\n[!] Don't forget to update the database.\n"
 	fi
 }
 
-# Execute
+## Execute
 build_pkgs

@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 ## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
-## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
-
+##
 ## This script will download and build AUR pkgs.
 
 ## ANSI Colors (FG & BG)
@@ -16,14 +15,13 @@ PKGDIR="$DIR/packages_aur"
 LIST=(blight
 	  cava
 	  ksuperkey
-	  #snapd
-	  #snapd-glib
 	  toilet
 	  unimatrix-git
 	  xfce-polkit
 	  ckbcomp
 	  mkinitcpio-openswap
 	  mkinitcpio-firmware
+	  ast-firmware
 	  aic94xx-firmware
 	  upd72020x-fw
 	  wd719x-firmware
@@ -51,7 +49,7 @@ LIST=(blight
 	  gtk3-nocsd-git
 	  )
 
-# Sort packages
+## Sort packages
 PKGS=(`for i in "${LIST[@]}"; do echo $i; done | sort`)
 _pkgs=()
 _failed=()
@@ -85,7 +83,7 @@ exit_on_signal_SIGTERM () {
 trap exit_on_signal_SIGINT SIGINT
 trap exit_on_signal_SIGTERM SIGTERM
 
-# Download AUR packages
+## Download AUR packages
 download_pkgs () {
 	{ echo -e ${BLUE}"\n[*] Downloadind AUR packages...\n"; reset_color; }
 	mkdir -p "$DIR"/0_aur_pkgs && cd "$DIR"/0_aur_pkgs
@@ -111,7 +109,7 @@ download_pkgs () {
 	fi
 }
 
-# Chech for new version
+## Chech for new version
 check_ver () {
 	{ echo -e ${BLUE}"[*] Checking for new AUR packages...\n"; reset_color; }
 	cd "$DIR"/0_aur_pkgs
@@ -141,7 +139,7 @@ check_ver () {
 	done
 }
 
-# Build Updated AUR packages
+## Build Updated AUR packages
 build_new_pkgs () {
 
 	if [[ ! -d "$PKGDIR" ]]; then
@@ -173,7 +171,7 @@ build_new_pkgs () {
 	fi
 }
 
-# Build All AUR packages
+## Build All AUR packages
 build_pkgs () {
 
 	if [[ ! -d "$PKGDIR" ]]; then
@@ -205,7 +203,7 @@ build_pkgs () {
 	fi
 }
 
-# Cleanup
+## Cleanup
 cleanup () {
 	{ echo -e ${BLUE}"[*] Cleaning up..."; reset_color; }
 	rm -rf "$DIR"/0_aur_pkgs
@@ -216,7 +214,7 @@ cleanup () {
 	fi	
 }
 
-# Main
+## Main
 if [[ -n "$1" ]]; then
 	download_pkgs
 	if [[ "$1" == "--new" ]]; then
