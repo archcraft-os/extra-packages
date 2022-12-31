@@ -40,7 +40,6 @@ LIST=(blight
 	  python-imageio
 	  wlr-randr
 	  wlogout
-	  polybar
 	  yay
 	  picom-ibhagwan-git
 	  timeshift
