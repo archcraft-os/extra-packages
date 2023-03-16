@@ -46,6 +46,11 @@ LIST=(blight
 	  downgrade
 	  mugshot
 	  gtk3-nocsd-git
+	  papirus-folders-catppuccin-git
+	  catppuccin-gtk-theme-mocha
+	  catppuccin-gtk-theme-macchiato
+	  catppuccin-gtk-theme-frappe
+	  catppuccin-gtk-theme-latte
 	  )
 
 ## Sort packages
