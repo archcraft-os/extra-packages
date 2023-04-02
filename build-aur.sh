@@ -51,6 +51,7 @@ LIST=(blight
 	  catppuccin-gtk-theme-macchiato
 	  catppuccin-gtk-theme-frappe
 	  catppuccin-gtk-theme-latte
+	  simplescreenrecorder
 	  )
 
 ## Sort packages
