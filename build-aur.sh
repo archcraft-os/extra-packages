@@ -52,6 +52,7 @@ LIST=(blight
 	  catppuccin-gtk-theme-frappe
 	  catppuccin-gtk-theme-latte
 	  simplescreenrecorder
+	  rofi-lbonn-wayland-git
 	  )
 
 ## Sort packages
