@@ -54,6 +54,7 @@ LIST=(blight
 	  simplescreenrecorder
 	  rofi-lbonn-wayland-git
 	  waybar-hyprland
+	  sddm-git
 	  )
 
 ## Sort packages
