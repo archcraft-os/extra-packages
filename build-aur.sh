@@ -53,6 +53,7 @@ LIST=(blight
 	  catppuccin-gtk-theme-latte
 	  simplescreenrecorder
 	  rofi-lbonn-wayland-git
+	  waybar-hyprland
 	  )
 
 ## Sort packages
