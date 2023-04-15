@@ -55,6 +55,7 @@ LIST=(blight
 	  rofi-lbonn-wayland-git
 	  waybar-hyprland
 	  sddm-git
+	  wdisplays
 	  )
 
 ## Sort packages
