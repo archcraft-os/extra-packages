@@ -34,7 +34,7 @@ LIST=(blight
 	  river
 	  wayfire
 	  wf-config
-	  newm-git
+	  newm-atha-git
 	  python-thefuzz
 	  python-dasbus
 	  python-imageio
