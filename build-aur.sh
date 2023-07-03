@@ -31,7 +31,6 @@ LIST=(blight
 	  obmenu-generator
 	  perl-linux-desktopfiles
 	  berry
-	  river
 	  wayfire
 	  wf-config
 	  newm-atha-git
@@ -46,16 +45,18 @@ LIST=(blight
 	  downgrade
 	  mugshot
 	  gtk3-nocsd-git
-	  papirus-folders-catppuccin-git
-	  catppuccin-gtk-theme-mocha
-	  catppuccin-gtk-theme-macchiato
-	  catppuccin-gtk-theme-frappe
-	  catppuccin-gtk-theme-latte
+	  #papirus-folders-catppuccin-git
+	  #catppuccin-gtk-theme-mocha
+	  #catppuccin-gtk-theme-macchiato
+	  #catppuccin-gtk-theme-frappe
+	  #catppuccin-gtk-theme-latte
 	  simplescreenrecorder
 	  rofi-lbonn-wayland-git
 	  waybar-hyprland
 	  sddm-git
 	  wdisplays
+	  swayfx
+	  swaylock-effects
 	  )
 
 ## Sort packages
