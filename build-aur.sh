@@ -52,11 +52,13 @@ LIST=(blight
 	  #catppuccin-gtk-theme-latte
 	  simplescreenrecorder
 	  rofi-lbonn-wayland-git
-	  waybar-hyprland
+	  waybar-hyprland-git
 	  sddm-git
 	  wdisplays
 	  swayfx
 	  swaylock-effects
+	  evilwm
+	  cwm
 	  )
 
 ## Sort packages
