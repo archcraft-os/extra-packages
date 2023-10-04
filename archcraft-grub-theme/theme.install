@@ -1,0 +1,26 @@
+## Colors ----------------------------
+
+# Text Reset
+Color_Off='\033[0m'
+
+# Regular Colors
+Black='\033[0;30m'  Red='\033[0;31m'     Green='\033[0;32m'  Yellow='\033[0;33m'
+Blue='\033[0;34m'   Purple='\033[0;35m'  Cyan='\033[0;36m'   White='\033[0;37m'
+
+## -----------------------------------
+
+change_theme() {
+	echo -e ${Blue}"\n[*] Applying ${Purple}${1}${Blue} theme for grub..."${Color_Off}
+	sed -i -e "s|GRUB_THEME=.*|GRUB_THEME=\"/usr/share/grub/themes/$1/theme.txt\"|g" /etc/default/grub
+	if [[ "$?" == 0 ]]; then
+		echo -e ${Green}"[+] Theme applied successfully."${Color_Off}
+		echo -e ${Cyan}"[*] Updating grub configuration file...\n"${Color_Off}
+		update-grub
+	else
+		echo -e ${Red}"[!] Failed to apply new theme.\n"${Color_Off}
+	fi
+}
+
+post_install() {
+	change_theme 'archcraft'
+}

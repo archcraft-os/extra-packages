@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
+## Copyright (C) 2020-2023 Aditya Shakya <adi1090x@gmail.com>
 ##
 ## This script will download and build AUR pkgs.
 
 ## ANSI Colors (FG & BG)
-RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
-MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\033[37m')" BLACK="$(printf '\033[30m')"
-
+RED="$(printf '\033[31m')"      GREEN="$(printf '\033[32m')"
+ORANGE="$(printf '\033[33m')"   BLUE="$(printf '\033[34m')"
+MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"
+WHITE="$(printf '\033[37m')"    BLACK="$(printf '\033[30m')"
+  
 ## Packages
 DIR="$(pwd)"
 PKGDIR="$DIR/packages_aur"
@@ -45,14 +47,8 @@ LIST=(blight
 	  downgrade
 	  mugshot
 	  gtk3-nocsd-git
-	  #papirus-folders-catppuccin-git
-	  #catppuccin-gtk-theme-mocha
-	  #catppuccin-gtk-theme-macchiato
-	  #catppuccin-gtk-theme-frappe
-	  #catppuccin-gtk-theme-latte
 	  simplescreenrecorder
 	  rofi-lbonn-wayland-git
-	  waybar-hyprland-git
 	  sddm-git
 	  wdisplays
 	  swayfx

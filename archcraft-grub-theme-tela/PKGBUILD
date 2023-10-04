@@ -2,20 +2,18 @@
 
 pkgname=archcraft-grub-theme-tela
 pkgver=1.0
-pkgrel=4
+pkgrel=5
 pkgdesc="Tela grub2 bootloader theme for Archcraft"
-url="https://github.com/archcraft-os/extra-packages"
 arch=('any')
+url="https://github.com/archcraft-os/extra-packages"
 license=('GPL3')
-makedepends=()
 depends=('grub')
-conflicts=()
 groups=(archcraft-grub-themes)
-provides=("${pkgname}")
 options=(!strip !emptydirs)
+install='theme.install'
 
 prepare() {
-	cp -af ../files/. ${srcdir}
+	cp -af ../files/. "$srcdir"
 }
 
 package() {

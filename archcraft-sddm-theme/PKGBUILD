@@ -2,20 +2,17 @@
 
 pkgname=archcraft-sddm-theme
 pkgver=1.0
-pkgrel=4
+pkgrel=5
 pkgdesc="Default sddm theme for Archcraft"
-url="https://github.com/archcraft-os/extra-packages"
 arch=('any')
+url="https://github.com/archcraft-os/extra-packages"
 license=('GPL3')
-makedepends=()
 depends=('sddm' 'qt5-declarative' 'qt5-graphicaleffects' 'qt5-quickcontrols2' 'qt5-svg')
-conflicts=()
 groups=(archcraft-sddm-themes)
-provides=("${pkgname}")
 options=(!strip !emptydirs)
 
 prepare() {
-	cp -af ../files/. ${srcdir}
+	cp -af ../files/. "$srcdir"
 }
 
 package() {
