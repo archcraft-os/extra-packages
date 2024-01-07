@@ -158,7 +158,7 @@ build_new_pkgs () {
 	cd "$DIR"/0_aur_pkgs
 	for _pkg in "${_pkgs[@]}"; do
 		echo "Building ${_pkg}..."
-		cd ${_pkg} && makepkg -s
+		cd ${_pkg} && makepkg -s --skippgpcheck
 		if [[ "$?" -eq 0 ]]; then
 			echo -e "Package '${_pkg}' generated successfully.\n"
 			mv *.pkg.tar.zst "$PKGDIR"
