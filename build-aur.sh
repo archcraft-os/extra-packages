@@ -55,6 +55,7 @@ LIST=(blight
 	  swaylock-effects
 	  evilwm
 	  cwm
+	  light
 	  )
 
 ## Sort packages
