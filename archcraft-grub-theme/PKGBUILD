@@ -2,7 +2,7 @@
 
 pkgname=archcraft-grub-theme
 pkgver=1.0
-pkgrel=5
+pkgrel=6
 pkgdesc="Default grub2 bootloader theme for Archcraft"
 arch=('any')
 url="https://github.com/archcraft-os/extra-packages"

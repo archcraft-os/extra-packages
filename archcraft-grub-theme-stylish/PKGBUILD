@@ -2,7 +2,7 @@
 
 pkgname=archcraft-grub-theme-stylish
 pkgver=1.0
-pkgrel=5
+pkgrel=6
 pkgdesc="Stylish grub2 bootloader theme for Archcraft"
 arch=('any')
 url="https://github.com/archcraft-os/extra-packages"

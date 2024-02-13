@@ -9,6 +9,12 @@ Blue='\033[0;34m'   Purple='\033[0;35m'  Cyan='\033[0;36m'   White='\033[0;37m'
 
 ## -----------------------------------
 
+# User info
+group_id=`echo ${SUDO_GID}`
+user_group=`cat /etc/group | grep $group_id | cut -d: -f1 | head -1`
+
+## -----------------------------------
+
 change_theme() {
 	echo -e ${Blue}"\n[*] Applying ${Purple}${1}${Blue} theme for grub..."${Color_Off}
 	sed -i -e "s|GRUB_THEME=.*|GRUB_THEME=\"/usr/share/grub/themes/$1/theme.txt\"|g" /etc/default/grub
@@ -22,5 +28,9 @@ change_theme() {
 }
 
 post_install() {
-	change_theme 'Vimix'
+	if [[ "$user_group" == 'liveuser' ]]; then
+		exit
+	else
+		change_theme 'Vimix'
+	fi
 }
