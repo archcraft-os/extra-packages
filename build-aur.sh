@@ -17,7 +17,6 @@ PKGDIR="$DIR/packages_aur"
 LIST=(blight
 	  cava
 	  ksuperkey
-	  toilet
 	  unimatrix-git
 	  xfce-polkit
 	  ckbcomp
@@ -43,7 +42,6 @@ LIST=(blight
 	  wlogout
 	  yay
 	  picom-ibhagwan-git
-	  timeshift
 	  downgrade
 	  mugshot
 	  gtk3-nocsd-git
