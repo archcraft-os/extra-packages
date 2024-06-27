@@ -4,7 +4,7 @@
 # Contributor: Gabriel Fox <inbox@gabrielfox.dev>
 
 pkgname=hyprland-stable
-pkgver=0.38.0
+pkgver=0.41.2
 pkgrel=1
 pkgdesc='a highly customizable dynamic tiling Wayland compositor'
 arch=(x86_64 aarch64)
@@ -17,6 +17,7 @@ depends=(cairo # libcairo.so
          glslang
          hyprcursor libhyprcursor.so
          hyprlang libhyprlang.so
+         hyprutils
          libdisplay-info libdisplay-info.so
          libdrm # libdrm.so
          libglvnd libEGL.so libGLESv2.so libOpenGL.so
@@ -42,6 +43,7 @@ depends=(cairo # libcairo.so
          xcb-proto
          xcb-util
          xcb-util-errors # libxcb-errors.so
+         xcb-util-image
          xcb-util-keysyms
          xcb-util-renderutil # libxcb-render-util.so 
          xcb-util-wm # libxcb-ewmh.so  libxcb-icccm.so 
@@ -49,6 +51,7 @@ depends=(cairo # libcairo.so
          xorg-xwayland)
 makedepends=(cmake
              gdb
+             hyprwayland-scanner
              meson
              ninja
              vulkan-headers
@@ -58,7 +61,7 @@ optdepends=('cmake: to build and install plugins using hyprpm'
             'meson: to build and install plugins using hyprpm')
 _archive="hyprland-$pkgver"
 source=("$_archive.tar.gz::$url/releases/download/v$pkgver/source-v$pkgver.tar.gz")
-sha256sums=('6e0235ad21ecff471381a50474852bfa0d1ed19bcf71504db5afe658bc305f08')
+sha256sums=('c2de1ea4f02ae817d42268874f6be692d807dcff9817a0cd438f9a221b045369')
 conflicts=('hyprland' 'hyprland-git')
 
 prepare() {
@@ -75,11 +78,11 @@ build() {
 package() {
 	cd "$_archive"
 	find src \( -name '*.h' -o -name '*.hpp' \) -exec install -Dm0644 {} "$pkgdir/usr/include/hyprland/{}" \;
-	pushd subprojects/wlroots/include
-	find . -name '*.h' -exec install -Dm0644 {} "$pkgdir/usr/include/hyprland/wlroots/{}" \;
+	pushd subprojects/wlroots-hyprland/include
+	find . -name '*.h' -exec install -Dm0644 {} "$pkgdir/usr/include/hyprland/wlroots-hyprland/{}" \;
 	popd
-	pushd subprojects/wlroots/build/include
-	find . -name '*.h' -exec install -Dm0644 {} "$pkgdir/usr/include/hyprland/wlroots/{}" \;
+	pushd subprojects/wlroots-hyprland/build/include
+	find . -name '*.h' -exec install -Dm0644 {} "$pkgdir/usr/include/hyprland/wlroots-hyprland/{}" \;
 	popd
 	mkdir -p "$pkgdir/usr/include/hyprland/protocols"
 	cp protocols/*-protocol.h "$pkgdir/usr/include/hyprland/protocols"
@@ -88,11 +91,16 @@ package() {
 	popd
 	install -Dm0644 -t "$pkgdir/usr/share/pkgconfig" build/hyprland.pc
 	install -Dm0644 -t "$pkgdir/usr/share/man/man1" docs/{Hyprland,hyprctl}.1
+	for cmd in hyprctl hyprpm; do
+		install -Dm0644 "$cmd/$cmd.bash" "$pkgdir/usr/share/bash-completion/completions/$cmd"
+		install -Dm0644 "$cmd/$cmd.zsh" "$pkgdir/usr/share/zsh/site-functions/_$cmd"
+		install -Dm0644 -t "$pkgdir/usr/share/fish/vendor_completions.d/" "$cmd/$cmd.fish"
+	done
 	install -Dm0755 -t "$pkgdir/usr/bin/" build/Hyprland build/hyprctl/hyprctl build/hyprpm/hyprpm
 	install -Dm0644 -t "$pkgdir/usr/share/hyprland/" assets/*.png
 	install -Dm0644 -t "$pkgdir/usr/share/wayland-sessions/" "example/hyprland.desktop"
 	install -Dm0644 -t "$pkgdir/usr/share/hyprland/" "example/hyprland.conf"
 	install -Dm0644 -t "$pkgdir/usr/share/licenses/hyprland/" LICENSE
-        find subprojects/wlroots/build -name 'libwlroots.so.*' -type f -execdir \
+        find subprojects/wlroots-hyprland/build -name 'libwlroots.so.*' -type f -execdir \
                 install -Dm0755 -t "$pkgdir/usr/lib/" {} \;
 }
