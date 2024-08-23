@@ -36,9 +36,9 @@ LIST=(blight
 	  wf-config
 	  newm-atha-git
 	  python-thefuzz
-	  python-dasbus
+	  #python-dasbus
 	  python-imageio
-	  wlr-randr
+	  #wlr-randr
 	  wlogout
 	  yay
 	  picom-ibhagwan-git
@@ -157,7 +157,7 @@ build_new_pkgs () {
 	cd "$DIR"/0_aur_pkgs
 	for _pkg in "${_pkgs[@]}"; do
 		echo "Building ${_pkg}..."
-		cd ${_pkg} && makepkg -s --skippgpcheck
+		cd ${_pkg} && makepkg -s
 		if [[ "$?" -eq 0 ]]; then
 			echo -e "Package '${_pkg}' generated successfully.\n"
 			mv *.pkg.tar.zst "$PKGDIR"
