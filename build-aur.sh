@@ -34,6 +34,7 @@ LIST=(blight
 	  berry
 	  wayfire
 	  wf-config
+	  wayfire-plugins-extra
 	  newm-atha-git
 	  python-thefuzz
 	  #python-dasbus
