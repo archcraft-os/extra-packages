@@ -4,8 +4,8 @@
 # Contributor: Gabriel Fox <inbox@gabrielfox.dev>
 
 pkgname=hyprland-stable
-pkgver=0.44.1
-pkgrel=1
+pkgver=0.45.1
+pkgrel=2
 pkgdesc='a highly customizable dynamic tiling Wayland compositor'
 arch=(x86_64 aarch64)
 url="https://github.com/hyprwm/hyprland"
@@ -39,7 +39,6 @@ depends=(cairo # libcairo.so
          systemd-libs libsystemd.so
          tomlplusplus libtomlplusplus.so libudev.so
          vulkan-icd-loader
-         vulkan-validation-layers
          wayland libwayland-client.so libwayland-server.so
          wayland-protocols
          xcb-proto
@@ -52,7 +51,6 @@ depends=(cairo # libcairo.so
          xorg-xinput
          xorg-xwayland)
 makedepends=(cmake
-             gdb
              hyprwayland-scanner
              meson
              ninja
@@ -61,38 +59,33 @@ makedepends=(cmake
 optdepends=('cmake: to build and install plugins using hyprpm'
             'cpio: to build and install plugins using hyprpm'
             'meson: to build and install plugins using hyprpm')
+provides=(wayland-compositor)
 _archive="hyprland-$pkgver"
 source=("$_archive.tar.gz::$url/releases/download/v$pkgver/source-v$pkgver.tar.gz")
-sha256sums=('a901b9ce5dac48a2b92f287d902c5dc33a05e9946fd082c43142f205246dfc63')
+sha256sums=('cfde862579248f0ed8824731073d796ed8fee3df863665ce41305a002b15c2d8')
 conflicts=('hyprland' 'hyprland-git')
 
 prepare() {
 	ln -sf hyprland-source "$_archive"
 	cd "$_archive"
 	sed -i -e '/^release:/{n;s/-D/-DCMAKE_SKIP_RPATH=ON -D/}' Makefile
+
+	# Workaround for https://gitlab.archlinux.org/archlinux/packaging/packages/hyprland/-/issues/15
+	rm -fv scripts/generateVersion.sh
 }
 
 build() {
 	cd "$_archive"
-	make release
+	make release PREFIX=/usr
 }
 
 package() {
 	cd "$_archive"
-	find src \( -name '*.h' -o -name '*.hpp' \) -exec install -Dm0644 {} "$pkgdir/usr/include/hyprland/{}" \;
-	pushd build
-	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-	popd
-	install -Dm0644 -t "$pkgdir/usr/share/pkgconfig" build/hyprland.pc
-	install -Dm0644 -t "$pkgdir/usr/share/man/man1" docs/{Hyprland,hyprctl}.1
-	for cmd in hyprctl hyprpm; do
-		install -Dm0644 "$cmd/$cmd.bash" "$pkgdir/usr/share/bash-completion/completions/$cmd"
-		install -Dm0644 "$cmd/$cmd.zsh" "$pkgdir/usr/share/zsh/site-functions/_$cmd"
-		install -Dm0644 -t "$pkgdir/usr/share/fish/vendor_completions.d/" "$cmd/$cmd.fish"
-	done
-	install -Dm0755 -t "$pkgdir/usr/bin/" build/Hyprland build/hyprctl/hyprctl build/hyprpm/hyprpm
-	install -Dm0644 -t "$pkgdir/usr/share/hyprland/" assets/*.png
-	install -Dm0644 -t "$pkgdir/usr/share/wayland-sessions/" "example/hyprland.desktop"
-	install -Dm0644 -t "$pkgdir/usr/share/hyprland/" "example/hyprland.conf"
+	make DESTDIR="$pkgdir" install
+	rm -fv "$pkgdir/usr/include/hyprland/src/version.h.in"
+	# Maybe we should keep these?
+	rm -frv "$pkgdir/usr/include/hyprland/protocols"
+	# Drop this line when hyprland-portals.conf is removed from xdg-desktop-portal-hyprland
+	rm -frv "$pkgdir/usr/share/xdg-desktop-portal"
 	install -Dm0644 -t "$pkgdir/usr/share/licenses/hyprland/" LICENSE
 }
