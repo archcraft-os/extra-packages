@@ -4,8 +4,8 @@
 # Contributor: Gabriel Fox <inbox@gabrielfox.dev>
 
 pkgname=hyprland-stable
-pkgver=0.45.1
-pkgrel=2
+pkgver=0.46.2
+pkgrel=4
 pkgdesc='a highly customizable dynamic tiling Wayland compositor'
 arch=(x86_64 aarch64)
 url="https://github.com/hyprwm/hyprland"
@@ -14,11 +14,14 @@ depends=(cairo # libcairo.so
          aquamarine libaquamarine.so
          gcc-libs # libgcc_s.so libstdc++.so
          glibc # libc.so libm.so
-         glib2 libgobject-2.0.so
+         glib2 libgio-2.0.so libgobject-2.0.so
          glslang
          hyprcursor libhyprcursor.so
+         hyprgraphics libhyprgraphics.so
+         hyprland-qtutils
          hyprlang libhyprlang.so
          hyprutils libhyprutils.so
+         hyprwayland-scanner
          libdisplay-info libdisplay-info.so
          libdrm # libdrm.so
          libglvnd libEGL.so libGLESv2.so libOpenGL.so
@@ -27,7 +30,7 @@ depends=(cairo # libcairo.so
          libx11
          libxcb # libxcb-dri3.so libxcb-present.so libxcb-render.so libxcb-res.so libxcb-shm.so libxcb.so libxcb-xfixes.so libxcb-xinput.so
          libxcomposite # libxcb-composite.so
-         libxcursor
+         libxcursor # libXcursor.so
          libxfixes
          libxkbcommon libxkbcommon.so
          libxrender
@@ -35,9 +38,11 @@ depends=(cairo # libcairo.so
          opengl-driver
          pango libpango-1.0.so libpangocairo-1.0.so
          pixman libpixman-1.so
+         re2 libre2.so
          seatd libseat.so
          systemd-libs libsystemd.so
          tomlplusplus libtomlplusplus.so libudev.so
+         util-linux-libs libuuid.so
          vulkan-icd-loader
          wayland libwayland-client.so libwayland-server.so
          wayland-protocols
@@ -48,10 +53,8 @@ depends=(cairo # libcairo.so
          xcb-util-keysyms
          xcb-util-renderutil # libxcb-render-util.so 
          xcb-util-wm # libxcb-ewmh.so  libxcb-icccm.so 
-         xorg-xinput
          xorg-xwayland)
 makedepends=(cmake
-             hyprwayland-scanner
              meson
              ninja
              vulkan-headers
@@ -62,7 +65,7 @@ optdepends=('cmake: to build and install plugins using hyprpm'
 provides=(wayland-compositor)
 _archive="hyprland-$pkgver"
 source=("$_archive.tar.gz::$url/releases/download/v$pkgver/source-v$pkgver.tar.gz")
-sha256sums=('cfde862579248f0ed8824731073d796ed8fee3df863665ce41305a002b15c2d8')
+sha256sums=('d072b50ac0bc48aebea7d0bdb3a0188c62103dde42ff3127a9962437f599b0c1')
 conflicts=('hyprland' 'hyprland-git')
 
 prepare() {
