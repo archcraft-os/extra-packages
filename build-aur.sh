@@ -32,10 +32,10 @@ LIST=(blight
 	  obmenu-generator
 	  perl-linux-desktopfiles
 	  berry
-	  wayfire
+	  #wayfire
 	  wf-config
-	  wayfire-plugins-extra
-	  newm-atha-git
+	  #wayfire-plugins-extra
+	  #newm-atha-git
 	  python-thefuzz
 	  #python-dasbus
 	  python-imageio
@@ -50,8 +50,8 @@ LIST=(blight
 	  rofi-lbonn-wayland-git
 	  sddm-git
 	  wdisplays
-	  swayfx
-	  swaylock-effects
+	  #swayfx
+	  #swaylock-effects
 	  evilwm
 	  cwm
 	  light
