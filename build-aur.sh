@@ -32,6 +32,8 @@ LIST=(blight
 	  obmenu-generator
 	  perl-linux-desktopfiles
 	  berry
+	  gtk-engine-murrine
+	  nitrogen
 	  #wayfire
 	  wf-config
 	  #wayfire-plugins-extra
