@@ -34,6 +34,7 @@ LIST=(blight
 	  berry
 	  gtk-engine-murrine
 	  nitrogen
+	  gtkmm
 	  #wayfire
 	  wf-config
 	  #wayfire-plugins-extra
