@@ -41,7 +41,7 @@ LIST=(blight
 	  #newm-atha-git
 	  python-thefuzz
 	  #python-dasbus
-	  python-imageio
+	  #python-imageio
 	  #wlr-randr
 	  wlogout
 	  yay
