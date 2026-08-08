@@ -30,6 +30,9 @@ LIST=(aic94xx-firmware
 	  ksuperkey
 	  light
 	  lead-git
+	  mangowm
+	  cjson
+	  scenefx0.5
 	  mkinitcpio-firmware
 	  mkinitcpio-openswap
 	  #newm-next-git
